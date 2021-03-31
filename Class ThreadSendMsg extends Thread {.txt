@@ -1,0 +1,24 @@
+Class ThreadSendMsg extends Thread { 
+    private String msg ; 
+    ThreadSendMsg(String m) {msg=m;} 
+    public void run () { 
+        try{ 
+            Socket s = new Socket ("localhost" ,6666) ; 
+            DataOutputStream dout = new DataOutputStream( 
+                            s .getOutputStream() ) ; 
+             dout .writeUTF(msg) ; 
+             dout.flush (); dout.close() ; 
+
+            )
+        }  
+        catch(Expectation e) { System.out.println(e);} 
+}} 
+public class MyClient { 
+    public static void main (String []vargs){ 
+            ThradSendMsg t1=new ThreadSendMsg("Bnjr ISSAT");
+            ThradSendMsg t2=new ThreadSendMsg("Bonjour Tunisie"); 
+            t1.start() ; t2.start(); 
+
+
+    }
+}
